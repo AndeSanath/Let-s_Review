@@ -1,0 +1,49 @@
+.live-review-toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 350px;
+  padding: 1.5rem;
+  z-index: 1000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.toast-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.toast-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-color-light);
+}
+
+.toast-user {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.toast-user b {
+  color: var(--text-primary);
+}
+
+.toast-user span {
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+.toast-rating {
+  display: flex;
+  gap: 0.2rem;
+  margin-top: 0.25rem;
+}
+
+.toast-comment {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--text-primary);
+}
