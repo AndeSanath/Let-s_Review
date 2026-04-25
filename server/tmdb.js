@@ -20,7 +20,7 @@ function mapMovie(m, category, platform) {
     rating: m.vote_average ? parseFloat((m.vote_average / 2).toFixed(1)) : 0,
     category,
     platform: platform || 'Theatre',
-    genre: m.genre_ids ? genreName(m.genre_ids[0]) : 'Unknown',
+    genre: m.genre_ids ? m.genre_ids.map(id => genreName(id)).join(', ') : 'Unknown',
     language: m.original_language ? m.original_language.toUpperCase() : 'EN',
     releaseYear: m.release_date ? parseInt(m.release_date.slice(0, 4)) : new Date().getFullYear(),
     reviewsCount: Math.floor(m.vote_count / 200),

@@ -11,6 +11,7 @@ const Review = require('./models/Review');
 const User = require('./models/User');
 const tmdb = require('./tmdb');
 const auth = require('./middleware/auth');
+const recommendations = require('./recommendationService');
 
 const app = express();
 const server = http.createServer(app);
@@ -317,6 +318,28 @@ app.get('/api/reviews', async (req, res) => {
 
     const reviews = await Review.find(query).sort({ createdAt: -1 });
     res.json(reviews);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+
+
+// --- RECOMMENDATION ROUTES ---
+
+app.get('/api/recommendations/movies', auth, async (req, res) => {
+  try {
+    const movies = await recommendations.getMovieRecommendations(req.user.id);
+    res.json(movies);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.get('/api/recommendations/critics', auth, async (req, res) => {
+  try {
+    const critics = await recommendations.getCriticSuggestions(req.user.id);
+    res.json(critics);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

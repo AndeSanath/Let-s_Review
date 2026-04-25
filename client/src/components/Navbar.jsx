@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Film, Search, User, Play, MonitorPlay, Sun, Moon, LogOut, Users, Menu, X } from 'lucide-react';
+import { Film, Search, User, Play, MonitorPlay, Sun, Moon, LogOut, Users, Menu, X, Sparkles } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import './Navbar.css';
 
@@ -45,6 +45,7 @@ export default function Navbar() {
           <Link to="/category/OTT" className="nav-link"><MonitorPlay size={16}/> OTT</Link>
           <Link to="/category/Theatre" className="nav-link"><Film size={16}/> Theatre</Link>
           <Link to="/critics" className="nav-link"><Users size={16}/> Critics</Link>
+          {user && <Link to="/recommendations" className="nav-link"><Sparkles size={16}/> For You</Link>}
           {user && <Link to="/profile" className="nav-link">Profile</Link>}
         </div>
 

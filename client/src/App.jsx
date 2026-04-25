@@ -10,6 +10,7 @@ import Signup from './pages/Signup';
 import Search from './pages/Search';
 import Critics from './pages/Critics';
 import Profile from './pages/Profile';
+import Recommendations from './pages/Recommendations';
 import LiveReviewToast from './components/LiveReviewToast';
 
 function AppRoutes() {
@@ -27,6 +28,7 @@ function AppRoutes() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/search" element={<Search />} />
       <Route path="/critics" element={<Critics />} />
+      <Route path="/recommendations" element={user ? <Recommendations /> : <Navigate to="/login" />} />
       <Route path="/profile" element={user ? <Profile /> : <Navigate to="/login" />} />
     </Routes>
   );
